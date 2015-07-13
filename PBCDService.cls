@@ -153,12 +153,12 @@ Private Function httpGET(url As String, BearerToken As String, Optional UserID A
 
 End Function
 
-Private Function httpPOST(url As String, BearerToken As String, postData As String, Optional UserID As String) As Variant
-    Set httpPOST = httpPOST_override(url, BearerToken, "", postData, UserID)
+Private Function httpPOST(url As String, BearerToken As String, postdata As String, Optional UserID As String) As Variant
+    Set httpPOST = httpPOST_override(url, BearerToken, "", postdata, UserID)
     
 End Function
 
-Private Function httpPOST_override(url As String, BearerToken As String, override As String, postData As String, Optional UserID As String) As Variant
+Private Function httpPOST_override(url As String, BearerToken As String, override As String, postdata As String, Optional UserID As String) As Variant
      
     Dim winhttp1
     
@@ -181,7 +181,7 @@ Private Function httpPOST_override(url As String, BearerToken As String, overrid
     
     Call winhttp1.setRequestHeader("Content-Type", "Application/json")
     
-    winhttp1.send (postData)
+    winhttp1.send (postdata)
     winhttp1.WaitForResponse
     
     Dim Response As String
@@ -264,7 +264,7 @@ Public Function JoinMember(JoinInfo As PBJoinForm) As PBResponse
 On Error GoTo ErrHandler
     Set JoinMember = Nothing
     
-    Dim postData As String
+    Dim postdata As String
     Dim tmp
     
     Set tmp = CreateObject("Scripting.Dictionary")
@@ -285,11 +285,11 @@ On Error GoTo ErrHandler
     tmp.Add "ID", JoinInfo.ID
     tmp.Add "PWD", JoinInfo.PWD
     
-    postData = m_Linkhub.toString(tmp)
+    postdata = m_Linkhub.toString(tmp)
     
     Dim result As Variant
     
-    Set result = httpPOST("/Join", "", postData)
+    Set result = httpPOST("/Join", "", postdata)
     
     Set JoinMember = New PBResponse
     
@@ -352,11 +352,11 @@ On Error GoTo ErrHandler
     End If
     
     Dim result As Variant
-    Dim postData As String
+    Dim postdata As String
     
-    postData = m_Linkhub.toString(CorpNumList)
+    postdata = m_Linkhub.toString(CorpNumList)
     
-    Set result = httpPOST("/CloseDown/", getSession_token(MemberCorpNum), postData, "")
+    Set result = httpPOST("/CloseDown/", getSession_token(MemberCorpNum), postdata, "")
     
     Set CheckCorpNums = New Collection
     
@@ -368,7 +368,7 @@ On Error GoTo ErrHandler
         
         CorpState.fromDictionary T
         
-        CorpStateList.Add CorpState
+        CheckCorpNums.Add CorpState
     Next
     
     Exit Function
