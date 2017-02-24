@@ -23,6 +23,7 @@ Option Explicit
 ' http://www.popbill.com
 ' Author : Jeong Yohan (code@linkhub.co.kr)
 ' Written : 2015-07-10
+' Updated : 2017-02-23
 '
 ' Thanks for your interest.
 '=================================================================================
@@ -225,7 +226,7 @@ ErrHandler:
     Set CheckID = Nothing
 End Function
 '연동회원 담당자 목록조회
-Public Function ListContact(CorpNum As String, UserID As String) As Collection
+Public Function ListContact(CorpNum As String, Optional UserID As String = "") As Collection
 On Error GoTo ErrHandler
         
     Dim result As Variant
@@ -253,7 +254,7 @@ ErrHandler:
     Set ListContact = Nothing
 End Function
 '담당자 추가
-Public Function RegistContact(CorpNum As String, ContactInfo As PBContactInfo, UserID As String) As PBResponse
+Public Function RegistContact(CorpNum As String, ContactInfo As PBContactInfo, Optional UserID As String = "") As PBResponse
 On Error GoTo ErrHandler
     Set RegistContact = Nothing
     
@@ -321,7 +322,7 @@ ErrHandler:
     m_LastErrMessage = Err.Description
 End Function
 '회사정보 수정
-Public Function UpdateCorpInfo(CorpNum As String, CorpInfo As PBCorpInfo, UserID As String) As PBResponse
+Public Function UpdateCorpInfo(CorpNum As String, CorpInfo As PBCorpInfo, Optional UserID As String = "") As PBResponse
 On Error GoTo ErrHandler
     Set UpdateCorpInfo = Nothing
     
@@ -352,7 +353,7 @@ ErrHandler:
     m_LastErrMessage = Err.Description
 End Function
 '회사정보 조회
-Public Function GetCorpInfo(CorpNum As String, UserID As String) As PBCorpInfo
+Public Function GetCorpInfo(CorpNum As String, Optional UserID As String = "") As PBCorpInfo
 On Error GoTo ErrHandler
     Dim result As Variant
        
@@ -464,7 +465,7 @@ ErrHandler:
     m_LastErrMessage = Err.Description
 End Function
 '과금정보 조회
-Public Function GetChargeInfo(CorpNum As String, Optional UserID As String) As PBChargeInfo
+Public Function GetChargeInfo(CorpNum As String, Optional UserID As String = "") As PBChargeInfo
 On Error GoTo ErrHandler
     Dim result As Variant
        
