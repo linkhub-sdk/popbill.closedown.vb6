@@ -23,14 +23,14 @@ Option Explicit
 ' http://www.popbill.com
 ' Author : Jeong Yohan (code@linkhub.co.kr)
 ' Written : 2015-07-10
-' Updated : 2017-02-23
+' Updated : 2017-08-18
 '
 ' Thanks for your interest.
 '=================================================================================
 Private Const ServiceID_REAL = "POPBILL"
 Private Const ServiceID_TEST = "POPBILL_TEST"
 Private Const ServiceURL_REAL = "https://popbill.linkhub.co.kr"
-Private Const ServiceURL_TEST = "https://popbill_test.linkhub.co.kr"
+Private Const ServiceURL_TEST = "https://popbill-test.linkhub.co.kr"
 Private Const APIVersion = "1.0"
 
 Private m_IsTest As Boolean

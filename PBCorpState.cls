@@ -16,6 +16,7 @@ Public ctype As String
 Public state As String
 Public stateDate As String
 Public checkDate As String
+Public typeDate As String
 
 Public Sub fromDictionary(dic As Variant)
     If IsNull(dic.Item("corpNum")) = False Then
@@ -46,5 +47,11 @@ Public Sub fromDictionary(dic As Variant)
         checkDate = dic.Item("checkDate")
     Else
         checkDate = ""
+    End If
+    
+    If IsNull(dic.Item("typeDate")) = False Then
+        typeDate = dic.Item("typeDate")
+    Else
+        typeDate = ""
     End If
 End Sub
