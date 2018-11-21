@@ -412,7 +412,6 @@ ErrHandler:
     GetPartnerURL = m_LastErrCode
 End Function
 
-
 'ÆËºô ±âº» URL
 Public Function GetPopbillURL(CorpNum As String, UserID As String, TOGO As String) As String
 On Error GoTo ErrHandler
@@ -427,6 +426,37 @@ ErrHandler:
     m_LastErrMessage = Err.Description
     GetPopbillURL = ""
 End Function
+
+'ÆËºô ·Î±×ÀÎ ±âº» URL
+Public Function GetAccessURL(CorpNum As String, UserID As String) As String
+On Error GoTo ErrHandler
+   Dim result As Variant
+   
+   Set result = httpGET("/?TG=LOGIN", getSession_token(CorpNum), UserID)
+   
+   GetAccessURL = result.Item("url")
+   Exit Function
+ErrHandler:
+   m_LastErrCode = Err.Number
+   m_LastErrMessage = Err.Description
+   GetAccessURL = ""
+End Function
+
+'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® ÃæÀü URL
+Public Function GetChargeURL(CorpNum As String, UserID As String) As String
+On Error GoTo ErrHandler
+   Dim result As Variant
+   
+   Set result = httpGET("/?TG=CHRG", getSession_token(CorpNum), UserID)
+   
+   GetChargeURL = result.Item("url")
+   Exit Function
+ErrHandler:
+   m_LastErrCode = Err.Number
+   m_LastErrMessage = Err.Description
+   GetChargeURL = ""
+End Function
+
 'È¸¿ø°¡ÀÔ ¿©ºÎ
 Public Function CheckIsMember(CorpNum As String, linkID As String) As PBResponse
 On Error GoTo ErrHandler
