@@ -13,6 +13,7 @@ Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Public CorpNum As String
 Public ctype As String
+Public taxType As String
 Public state As String
 Public stateDate As String
 Public checkDate As String
@@ -29,6 +30,11 @@ Public Sub fromDictionary(dic As Variant)
         ctype = dic.Item("type")
     Else
         ctype = ""
+    End If
+    If IsNull(dic.Item("taxType")) = False Then
+        taxType = dic.Item("taxType")
+    Else
+        taxType = ""
     End If
     
     If IsNull(dic.Item("state")) = False Then
