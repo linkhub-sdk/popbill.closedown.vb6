@@ -21,9 +21,9 @@ Option Explicit
 ' on system32 by default.
 '
 ' http://www.popbill.com
-' Author : Jeong Yohan (code@linkhub.co.kr)
+' Author : Jeong Yohan (code@linkhubcopr.com)
 ' Written : 2015-07-10
-' Updated : 2022-01-14
+' Updated : 2022-01-17
 '
 ' Thanks for your interest.
 '=================================================================================
@@ -403,11 +403,11 @@ On Error GoTo ErrHandler
     
     Set tmp = CreateObject("Scripting.Dictionary")
     
-    tmp.Add "ceoname", CorpInfo.ceoname
-    tmp.Add "corpName", CorpInfo.corpName
-    tmp.Add "addr", CorpInfo.addr
-    tmp.Add "bizType", CorpInfo.bizType
-    tmp.Add "bizClass", CorpInfo.bizClass
+    tmp.Add "ceoname", CorpInfo.CEOName
+    tmp.Add "corpName", CorpInfo.CorpName
+    tmp.Add "addr", CorpInfo.Addr
+    tmp.Add "bizType", CorpInfo.BizType
+    tmp.Add "bizClass", CorpInfo.BizClass
             
     postData = m_Linkhub.toString(tmp)
     
@@ -590,12 +590,12 @@ On Error GoTo ErrHandler
     
     tmp.Add "LinkID", JoinInfo.LinkID
     tmp.Add "CorpNum", JoinInfo.CorpNum
-    tmp.Add "CorpName", JoinInfo.corpName
-    tmp.Add "CEOName", JoinInfo.ceoname
-    tmp.Add "Addr", JoinInfo.addr
+    tmp.Add "CorpName", JoinInfo.CorpName
+    tmp.Add "CEOName", JoinInfo.CEOName
+    tmp.Add "Addr", JoinInfo.Addr
     tmp.Add "ZipCode", JoinInfo.ZipCode
-    tmp.Add "BizClass", JoinInfo.bizClass
-    tmp.Add "BizType", JoinInfo.bizType
+    tmp.Add "BizClass", JoinInfo.BizClass
+    tmp.Add "BizType", JoinInfo.BizType
     tmp.Add "ContactName", JoinInfo.ContactName
     tmp.Add "ContactEmail", JoinInfo.ContactEmail
     tmp.Add "ContactFAX", JoinInfo.ContactFAX
