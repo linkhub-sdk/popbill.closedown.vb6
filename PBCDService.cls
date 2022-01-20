@@ -347,7 +347,7 @@ On Error GoTo ErrHandler
     
     Dim result As Variant
     
-    Set result = httpPOST("/IDs/New", getSession_token(CorpNum), postData)
+    Set result = httpPOST("/IDs/New", getSession_token(CorpNum), postData, UserID)
     
     Set RegistContact = New PBResponse
     
